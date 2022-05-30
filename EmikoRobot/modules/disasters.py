@@ -72,7 +72,7 @@ def addsudo(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        message.reply_text("This member is already a the Vice President" )
+        message.reply_text("This member is already a the Vice President")
         return ""
 
     if user_id in DEMONS:
@@ -268,7 +268,8 @@ def addtiger(update: Update, context: CallbackContext) -> str:
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_text(
-        rt + f"\nSuccessfully give a power to {user_member.first_name} for to be a low level disaster!",
+        rt
+        + f"\nSuccessfully give a power to {user_member.first_name} for to be a low level disaster!",
     )
 
     log_message = (
@@ -539,26 +540,14 @@ def devlist(update: Update, context: CallbackContext):
 SUDO_HANDLER = CommandHandler(("addsudo"), addsudo, run_async=True)
 SUPPORT_HANDLER = CommandHandler(("addsupport"), addsupport, run_async=True)
 TIGER_HANDLER = CommandHandler(("adtg"), addtiger, run_async=True)
-WHITELIST_HANDLER = CommandHandler(
-    ("addwhitelist"), addwhitelist, run_async=True
-)
-UNSUDO_HANDLER = CommandHandler(
-    ("rmvsudo"), removesudo, run_async=True
-)
-UNSUPPORT_HANDLER = CommandHandler(
-    ("rmvsupport"), removesupport, run_async=True
-)
+WHITELIST_HANDLER = CommandHandler(("addwhitelist"), addwhitelist, run_async=True)
+UNSUDO_HANDLER = CommandHandler(("rmvsudo"), removesudo, run_async=True)
+UNSUPPORT_HANDLER = CommandHandler(("rmvsupport"), removesupport, run_async=True)
 UNTIGER_HANDLER = CommandHandler(("rmvtiger"), removetiger, run_async=True)
-UNWHITELIST_HANDLER = CommandHandler(
-    ("rmvwhitelist"), removewhitelist, run_async=True
-)
-WHITELISTLIST_HANDLER = CommandHandler(
-    ["whitelistlist"], whitelistlist, run_async=True
-)
+UNWHITELIST_HANDLER = CommandHandler(("rmvwhitelist"), removewhitelist, run_async=True)
+WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist"], whitelistlist, run_async=True)
 TIGERLIST_HANDLER = CommandHandler(["tigers"], tigerlist, run_async=True)
-SUPPORTLIST_HANDLER = CommandHandler(
-    ["supportlist"], supportlist, run_async=True
-)
+SUPPORTLIST_HANDLER = CommandHandler(["supportlist"], supportlist, run_async=True)
 SUDOLIST_HANDLER = CommandHandler(["sudolist"], sudolist, run_async=True)
 DEVLIST_HANDLER = CommandHandler(["devlist"], devlist, run_async=True)
 
